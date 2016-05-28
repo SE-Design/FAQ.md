@@ -1,0 +1,348 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0\fnil\fcharset0 Impact;}{\f1\fnil\fcharset0 Arial Black;}{\f2\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue0;\red255\green0\blue0;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang9\ul\b\f0\fs144 NetSaver Pro\ulnone\f1\par
+\cf0\b0\f2\fs22 ========\par
+\par
+Please scroll down if you want to ask a question, request a feature or report a bug.\par
+\par
+Frequently Asked Questions (FAQ)\par
+--------------------------------\par
+\par
+<a name="FAQ0"></a>\par
+**(0) How do I use NetSaver Pro?**\par
+\par
+* Enable the firewall using the switch in the action bar\par
+* Allow/deny Wi-Fi/mobile internet access using the icons along the right side of the application list\par
+\par
+You can use the settings menu to change from blacklist mode (allow all in *Settings* but block unwanted applications in list) to whitelist mode (block all in *Settings* but allow favorite applications in list).\par
+\par
+* Red/orange/yellow/amber = internet access denied\par
+* Teal/blue/purple/grey = internet access allowd\par
+\par
+\cf2\b\fs32 **(1) Can NetSaver Pro completely protect my privacy?**\par
+\cf0\b0\fs22\par
+No - nothing can completely protect your privacy.\par
+NetSaver Pro will do its best, but it is limited by the fact it must use the VPN service.\par
+This is the trade-off required to make a firewall which does not require root access.\par
+The firewall can only start when Android "allows" it to start,\par
+so it will not offer protection during early boot-up (although your network may not be loaded at that time).\par
+It will, however, be much better than nothing, especially if you are not rebooting often.\par
+\par
+If you want to protect yourself more, you can (at least in theory) disable Wi-Fi and mobile data before rebooting,\par
+and only enable them on reboot, after the firewall service has started (and the small key icon is visible in the status bar).\par
+\par
+Thanks \par
+\par
+\par
+\cf2\b\fs32 **(2)  Can I use another VPN application while using NetSaver Pro**\cf0\b0\fs22\par
+\par
+If the VPN application is using the [VPN service](http://developer.android.com/reference/android/net/VpnService.html),\par
+then no, because NetSaver Pro needs to use this service. Android allows only one application at a time to use this service.\par
+\par
+\par
+\cf2\b\fs32 **(3) Can I use NetSaver Pro on any Android version?**\cf0\b0\fs22\par
+\par
+No, the minimum required Android version is 4.0 (Lollipop)\par
+because NetSaver Pro uses the [addDisallowedApplication](http://developer.android.com/reference/android/net/VpnService.Builder.html#addDisallowedApplication(java.lang.String)) method.\par
+\par
+\par
+\cf2\b\fs32 **(4) Will NetSaver Pro use extra battery power?**\cf0\b0\fs22\par
+\par
+If you didn't enable IP filtering, probably not.\par
+\par
+However, the network speed graph notification will use extra battery power.\par
+This is why the notification is shown only when the screen is on.\par
+You can decrease the update frequency using the settings to reduce the battery usage.\par
+\par
+\cf2\b\fs32 **(6) Will NetSaver Pro send my internet traffic to an external (VPN) server?**\par
+\cf0\b0\fs22\par
+No, depending on the mode of operation basically one of two things will happen with your internet traffic:\par
+\par
+* When IP filtering is disabled, blocked internet traffic will be routed into the local VPN which will operate as sinkhole (in effect dropping all blocked traffic)\par
+* When IP filtering is enabled, both blocked and allowed internet traffic will be routed into the local VPN and only allowed traffic will be forwarded to the intended destination (so not to a VPN server)\par
+\par
+The [Android VPN service](http://developer.android.com/reference/android/net/VpnService.html) is being used to locally route all internet traffic to NetSaver Pro so no root is required to build a firewall application.\par
+NetSaver Pro is unlike all other no-root firewalls applications.\par
+\par
+\par
+\cf2\b\fs32 **(7) Why are applications without internet permission shown?**\par
+\cf0\b0\fs22\par
+Internet permission can be granted with each application update without user consent.\par
+By showing all applications, NetSaver Pro allows you to control internet access even *before* such an update occurs.\par
+\par
+\cf2\b\fs32 **(8) What do I need to enable for the Google Play\'99 store app to work?**\par
+\cf0\b0\fs22\par
+You need 3 packages (applications) enabled (use search in NetSaver Pro to find them quickly):\par
+\par
+* com.android.vending (Play store)\par
+* com.google.android.gms (Play services)\par
+* com.android.providers.downloads (Download manager)\par
+\par
+Since the Google Play\'99 store app has a tendency to check for updates or even download them all by itself (even if no account is associated),\par
+one can keep it in check by enabling "*Allow when device in use*" for all 3 of these packages.\par
+Click on the down arrow on the left side of an application name and check that option,\par
+but leave the network icons set to red (hence blocked).The little human icon will appear for those packages.\par
+\par
+Note that NetSaver Pro does not require any Google service to be installed.\par
+\par
+\par
+\cf2\b\fs32 **(9) Why is the VPN service being restarted?**\cf0\b0\fs22\par
+\par
+The VPN service will be restarted when you turn the screen on or off and when connectivity changes (Wi-Fi, mobile)\par
+to apply the rules with the conditions '*Allow when screen is on*' and '*Block when roaming*'.\par
+\par
+See [here](http://forum.xda-developers.com/showpost.php?p=65723629&postcount=1788) for more details.\par
+\par
+\par
+\cf2\b\fs32 **(10) Will you provide a Tasker plug-in?**\cf0\b0\fs22\par
+\par
+If disabling NetSaver Pro is allowed to Tasker, any application can disabled NetSaver Pro too.\par
+Allowing to disable a security application from other applications is not a good idea.\par
+\par
+\par
+\cf2\b\fs32 **(13) How can I remove the ongoing NetSaver Pro entry in the notification screen?**\cf0\b0\fs22\par
+\par
+* Long click the NetSaver Pro notification\par
+* Tap the 'i' icon\par
+* Depending on your device and/or ROMs manufacturer software customizations, you can be directed to either:\par
+  * the **App Info** screen and you can uncheck '*Show notifications*' and agree to the next dialog\par
+  * the **App Notifications** screen and you can toggle the '*Block*' slider to on\par
+\par
+Note that, whether or not you get a dialog warning to agree upon,\par
+this operation will disable any information or warning notifications from NetSaver Pro as well,\par
+like the new application installed notification.\par
+\par
+To read about the need for the notification in the first place, see [question 24](#FAQ24).\par
+\par
+Some Android versions display an additional notification, which might include a key icon.\par
+This notification can unfortunately not be removed.\par
+\par
+\par
+\cf2\b\fs32 **(14) Why can't I select OK to approve the VPN connection request?**\cf0\b0\fs22\par
+\par
+There might be another (invisible) application on top of the VPN connection request dialog.\par
+Some known (screen dimming) applications which can cause this are *Lux Brightness*, *Night Mode* and *Twilight*.\par
+To avoid this problem, at least temporary, close all applications and/or services which may be running in the background.\par
+\par
+\cf2\b\fs32\par
+**(15) Why won't you support the F-Droid builds?**\par
+\cf0\b0\fs22\par
+Because F-Droid doesn't support reproducible builds.\par
+Read [here](https://blog.torproject.org/blog/deterministic-builds-part-one-cyberwar-and-global-compromise) why this is important.\par
+\par
+Another reason is that F-Droid builds are more often than not outdated, leaving users with an old version with known bugs.\par
+\par
+\par
+\cf2\b\fs32 **(16) Why are some applications shown dimmed?**\cf0\b0\fs22\par
+\par
+Disabled applications and applications without internet permission are shown dimmed.\par
+\par
+\par
+\cf2\b\fs32 **(17) Why is NetSaver Pro so much memory?**\cf0\b0\fs22\par
+\par
+It isn't, NetSaver Pro doesn't allocate any memory, except a little for displaying the user interface elements.\par
+It appeared that on some Android variants the Google Play\'99 store app connection, using almost 150 MB and needed for in-app donations,\par
+is incorrectly attributed to NetSaver Pro instead to the Google Play\'99 store app.\par
+\par
+\par
+\cf2\b\fs32 **(18) Why can't I findNetSaver Pro in the Google Play\'99 store app?**\par
+\cf0\b0\fs22\par
+NetSaver Pro requires at least Android 4.0, so it is not available in the Google Play\'99 store app for devices running older Android versions.\par
+\par
+\par
+\cf2\b\fs32 **(19) Why does aplication XYZ still have internet access?**\cf0\b0\fs22\par
+\par
+If you block internet access for an application, there is no way around it.\par
+However, applications could access the internet through other applications.\par
+Google Play services is handling push messages for most applications for example.\par
+You can prevent this by blocking internet access for the other application as well.\par
+\par
+Note that some applications keep trying to access the internet, which is done by sending a connection request packet.\par
+This packet goes into the VPN sinkhole when internet access for the application is blocked.\par
+This packet consists of less than 100 bytes and is counted by Android as outgoing traffic\par
+and will be visible in the speed graph notification as well.\par
+\par
+\par
+\cf2\b\fs32 **(20) Can I Greenify/hibernate NetSaver Pro?**\cf0\b0\fs22\par
+\par
+No. [Greenifying](https://play.google.com/store/apps/details?id=com.oasisfeng.greenify)\par
+or otherwise hibernating NetSaver Pro will result in rules not being applied\par
+when connectivity changes from Wi-Fi/mobile, screen on/off and roaming/not roaming.\par
+\par
+\par
+\cf2\b\fs32 **(21) Does doze mode affect NNetSaver Pro?**\cf0\b0\fs22\par
+\par
+I am not sure, because the [doze mode documentation](http://developer.android.com/training/monitoring-device-state/doze-standby.html)\par
+is not clear if the [Android VPN service](http://developer.android.com/reference/android/net/VpnService.html) will be affected.\par
+\par
+To be sure you can disable battery optimizations for NetSaver Pro manually like this:\par
+\par
+```\par
+Android settings > Battery > three dot menu > Battery optimizations > Dropdown > All apps > NetSaver Pro> Don't optimize > Done\par
+```\par
+\par
+This cannot be done from the application,\par
+because according to Google NetSaver Pro is [not an application type allowed to do this](http://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases).\par
+\par
+\cf2\b\fs32 **(22) Can I tether / use Wi-Fi calling while using NetSaver Pro?**\cf0\b0\fs22\par
+\par
+Yes, but this needs to be enabled in the settings.\par
+If it works depends on your Android version,\par
+because some Android versions have a bug preventing tethering and the VPN service to work together.\par
+\par
+Some devices hibernate Wi-Fi preventing tethering to work when the screen is off.\par
+This behavior can be disabled in the Android enhanced/advanced Wi-Fi settings.\par
+\par
+\par
+\cf2\b\fs32 **(24) Can you remove the notification from the status bar?**\par
+\cf0\b0\fs22\par
+Android can kill background services at any time.\par
+This can only be prevented by turning a background service into a foreground service.\par
+Android requires an ongoing notification for all foreground services\par
+to make you aware of potential battery usage (see [question 4](#FAQ4)).\par
+So, the notification cannot be removed without causing instability.\par
+However, the notification is being marked as low priority,\par
+which should result in moving it to the bottom of the list.\par
+\par
+The key icon and/or the VPN running notification,\par
+which is shown by Android and not by NetSaver Pro, can unfortunately not be removed.\par
+The [Google documentation](http://developer.android.com/reference/android/net/VpnService.html) says:\par
+"*A system-managed notification is shown during the lifetime of a VPN connection*".\par
+\par
+\par
+\cf2\b\fs32 **(25) Can you add a 'select all'?**\cf0\b0\fs22\par
+\par
+There is no need for a select all function,\par
+because you can switch from black list to white list mode using the settings.\par
+See also [question 0](#FAQ0).\par
+\par
+\par
+\cf2\b\fs32 **(27) How do I read the blocked traffic log?**\cf0\b0\fs22\par
+\par
+The columns have the following meaning:\par
+\par
+1. Time (tap on a log entry to see the date)\par
+1. Application icon (tap on a log entry to see the application name)\par
+1. Application UID\par
+1. Wi-Fi / mobile connection, green=allowed, red=blocked\par
+1. Interactive state (screen on or off)\par
+1. Protocol (see below) and packet flags (see below)\par
+1. Source and destination port (tap on a log entry to lookup a destination port)\par
+1. Source and destination IPv4 or IPv6 address (tap on a log entry to lookup a destination IP address)\par
+1. Organization name owning the IP address (need to be enabled through the menu)\par
+\par
+Protocols:\par
+\par
+* ICMP\par
+* IGMP\par
+* ESP (IPSec)\par
+* TCP\par
+* UDP\par
+* Number = one of the protocols in [this list](https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers)\par
+* 4 = IPv4\par
+* 6 = IPv6\par
+\par
+Packet flags:\par
+\par
+* S = SYN\par
+* A = ACK\par
+* P = PSH\par
+* F = FIN\par
+* R = RST\par
+\par
+For a detailed explanation see [here](https://en.wikipedia.org/wiki/Transmission_Control_Protocol).\par
+\par
+\par
+\cf2\b\fs32 **(28) Why is Google connectivity services allowed internet access by default?**\par
+\cf0\b0\fs22\par
+The Google connectivity services system application checks if the current network is really connected to the internet.\par
+This is probably done by briefly connecting to some Google server.\par
+\par
+If this is not the case, there will be an '!' in the Wi-Fi or mobile icon in the system status bar.\par
+\par
+Recent Android versions seem not to switch connectivity from mobile to Wi-Fi when the Wi-Fi network is not really connected,\par
+even though there is a connection to the Wi-Fi network (or the other way around). On Android 6.0 and later you might get a notification asking you if you want to keep this connection on or not.\par
+To prevent a bad user experience there is a predefined rule to default allow the Google connectivity services.\par
+\par
+\par
+\par
+\cf2\b\fs32 **(29) Why do I get 'The item you requested is not available for purchase'?**\cf0\b0\fs22\par
+\par
+You can only purchase pro feature when you installed NetSaver Pro from the Play store.\par
+\par
+\par
+\cf2\b\fs32 **(30) Can I also run AFWall+ on the same device?**\cf0\b0\fs22\par
+\par
+Unless you are just testing NetSaver Pro, there is no current reason to use them both, since they cover the same function (firewall),\par
+although with different base needs (AFWall+ needs a rooted device) and ways of doing their thing (AFWall+ uses iptables).\par
+\par
+Also you need to keep per applicaton access rules _always_ in sync,\par
+else the application will not be able to access the network,\par
+hence bringing another level of complexity when setting and assuring things work out.\par
+\par
+Some pointers on how to set up AFWall+:\par
+* if not using filtering in NetSaver Pro, applications _need_ direct internet access (Wi-Fi and/or mobile) in AFWall+\par
+* if using filtering, NetSaver Pro will _need_ internet access (Wi-Fi and/or mobile) in AFWall+\par
+* if using filtering, when you un/reinstall NetSaver Pro, remember to RE-allow NetSaver Pro in AFWall+\par
+* if using filtering, applications _need_ VPN internet access (check the box to show that option in AFWall+ settings)\par
+\par
+\cf2\b\fs28\par
+**(31) Why can some applications be configured as a group only?**\par
+\cf0\b0\fs22\par
+For a lot of purposes, including network access, Android groups applications on UID and not on package/application name.\par
+Especially system applications often have the same UID, despite having a different package and application name, these are set up like this by the ROM manufacturer at build time.\par
+These applications can only be allowed/blocked access to the internet as a group.\par
+\par
+\cf2\b\fs32 **(32) Why is the battery/network usage of NetSaver Pro so high?**\cf0\b0\fs22\par
+\par
+This is because Android contributes battery and network usage which is normally contributed to other applications\par
+to NetSaver Prod in IP filtering mode. The total battery usage is slightly higher when IP filtering mode is enabled.\par
+IP filtering mode is always enabled on Android version before 5.0 and optionally enabled on later Android versions.\par
+\par
+\cf2\b\fs32 **(33) Can you add profiles?**\par
+\cf0\b0\fs22\par
+Profiles are inconvenient because they need to be operated manually.\par
+Conditions like '*When screen is on*' are on the other hand convenient because they work automatic.\par
+Therefore profiles will not be added, but you are welcome to propose new conditions,\par
+however they need to be generally usable to be included.\par
+\par
+As a workaround you can use the export/import function to apply specific settings in specific circumstances.\par
+\cf2\b\fs32\par
+**(34) Can you add the condition 'when on foreground'?**\par
+\cf0\b0\fs22\par
+Recent Android versions do not allow an application to query if other applications are in the foreground or background anymore,\par
+so this cannot be added. You can use the condition '*when screen is on*' instead.\par
+\par
+\cf2\b\fs32 **(35) Why does the VPN not start?**\par
+\cf0\b0\fs22\par
+NetSaver Pro "asks" Android to start the local VPN service,\par
+but some Android versions contain a bug which prevents the VPN from starting (automatically).\par
+Sometimes this is caused by updating NetSaver Pro.\par
+Unfortunately this cannot be fixed from NetSaver Pro.\par
+What you can try is to restart your device and/or revoke the VPN permissions from NetSaver Pro using the Android settings.\par
+Sometimes it helps to uninstall and install NetSaver Pro again (be sure to export your settings first).\par
+\par
+\par
+\cf2\b\fs32 **(36) Can you add PIN or password protection?**\cf0\fs24\par
+\b0\fs22\par
+Since turning off the VPN service using the Android settings cannot be prevented,\par
+there is little use in adding PIN or password protection.\par
+\par
+\cf2\b\fs32 **(37) Why are the pro features so expensive?**\par
+\cf0\b0\fs22\par
+The right question is "*why are there so many taxes and fees*":\par
+\par
+* VAT: 25% (depending on your country)\par
+* Google fee: 30%\par
+* Income tax: 50%\par
+\par
+So, what is left for the developer is just a fraction of what you pay.\par
+\par
+Despite NetSaver Pro being *really* a lot of work, only some of the convenience and advanced features are paid,\par
+which means that NetSaver Pro  is basically free to use.\par
+\par
+Also note that most free applications will appear not to be sustainable in the end, whereas NetSaver Pro is properly maintained and supported.\par
+\par
+\par
+}
+ 
